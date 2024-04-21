@@ -42,7 +42,7 @@ public class LojaResource implements ResourceDTO<Loja, LojaRequest, LojaResponse
                 .withIgnoreCase()
                 .withIgnoreNullValues();
 
-        example<Loja> example = Example.of(loja,matcher);
+        Example<Loja> example = Example.of(loja,matcher);
 
         var encontrados = service.findAll(example);
         if (encontrados.isEmpty()) return ResponseEntity.notFound().build();
@@ -55,7 +55,7 @@ public class LojaResource implements ResourceDTO<Loja, LojaRequest, LojaResponse
     @Transactional
     @PostMapping
     public ResponseEntity<LojaResponse> save(@RequestBody @Valid LojaRequest r){
-        var entity = service(r);
+        var entity = service.toEntity(r);
         var saved = service.save(entity);
         var resposta = service.toResponse(saved);
         var uri = ServletUriComponentsBuilder
@@ -78,5 +78,13 @@ public class LojaResource implements ResourceDTO<Loja, LojaRequest, LojaResponse
         loja.getVeiculosComercializados().add(veiculoEntity);
         return service.toResponse(loja);
 
+    }
+    @Override
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<LojaResponse> findById(@PathVariable Long id) {
+        var encontrado = service.findById( id );
+        if (encontrado == null) return ResponseEntity.notFound().build();
+        var resposta = service.toResponse( encontrado );
+        return ResponseEntity.ok( resposta );
     }
 }

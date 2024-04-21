@@ -7,11 +7,12 @@ import br.com.fiap.concessionaria.entity.Loja;
 import br.com.fiap.concessionaria.repository.LojaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
-
+@Service
 public class LojaService implements ServiceDTO<Loja, LojaRequest, LojaResponse>{
 
     @Autowired

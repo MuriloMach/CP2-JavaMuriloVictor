@@ -34,18 +34,18 @@ public class Loja {
             cascade = {CascadeType.MERGE, CascadeType.PERSIST}
     )
     @JoinTable(
-            name = "LOJA_VEICULO",
+            name = "VEICULO_LOJA",
             joinColumns = {
-                    @JoinColumn(
-                            name = "VEICULO",
-                            referencedColumnName = "ID_VEICULO",
-                            foreignKey = @ForeignKey(name = "FK_VEICULO_LOJA"))
-            },
-            inverseJoinColumns = {
                     @JoinColumn(
                             name = "LOJA",
                             referencedColumnName = "ID_LOJA",
                             foreignKey = @ForeignKey(name = "FK_LOJA_VEICULO"))
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "VEICULO",
+                            referencedColumnName = "ID_VEICULO",
+                            foreignKey = @ForeignKey(name = "FK_VEICULO_LOJA"))
             }
     )
     private Set<Veiculo> veiculosComercializados = new LinkedHashSet<>();

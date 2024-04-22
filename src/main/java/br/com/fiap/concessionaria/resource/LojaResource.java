@@ -24,10 +24,11 @@ import java.util.Objects;
 public class LojaResource implements ResourceDTO<Loja, LojaRequest, LojaResponse>{
 
     @Autowired
-    private VeiculoRepository veiculoRepository;
+    private LojaService service;
 
     @Autowired
-    private LojaService service;
+    private VeiculoRepository veiculoRepository;
+
 
     @GetMapping
     public ResponseEntity<Collection<LojaResponse>> findAll(

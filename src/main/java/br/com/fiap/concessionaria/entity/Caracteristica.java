@@ -30,6 +30,12 @@ public class Caracteristica {
     @Column(name = "DESCRICAO_FABRICANTE")
     private String descricao;
 
-    @Column(name = "VEICULO_FABRICANTE")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "VEICULO",
+            referencedColumnName = "ID_VEICULO",
+            foreignKey = @ForeignKey(name = "FK_CARACTERISTICA_VEICULO"),
+            nullable = false
+    )
     private Veiculo veiculo;
 }

@@ -46,26 +46,6 @@ public class Veiculo {
     @Column(name = "PALAVRA_EFEITO_VEICULO")
     private String palavraDeEfeito;
 
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(
-            name = "FABRICANTE",
-            referencedColumnName = "ID_FABRICANTE",
-            foreignKey = @ForeignKey(
-                    name = "FK_VEICULO_FABRICANTE"
-            )
-    )
-    private Fabricante fabricante;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(
-            name = "TIPO_VEICULO",
-            referencedColumnName = "ID_TIPO_VEICULO",
-            foreignKey = @ForeignKey(
-                    name = "FK_VEICULO_TIPO_VEICULO"
-            )
-    )
-    private TipoVeiculo tipoVeiculo;
     @ManyToMany(
             fetch = FetchType.EAGER,
             cascade = {CascadeType.MERGE, CascadeType.PERSIST}
@@ -86,4 +66,26 @@ public class Veiculo {
             }
     )
     private Set<Acessorio> acessorios = new LinkedHashSet<>();
+
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "FABRICANTE",
+            referencedColumnName = "ID_FABRICANTE",
+            foreignKey = @ForeignKey(
+                    name = "FK_VEICULO_FABRICANTE"
+            )
+    )
+    private Fabricante fabricante;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "TIPO_VEICULO",
+            referencedColumnName = "ID_TIPO_VEICULO",
+            foreignKey = @ForeignKey(
+                    name = "FK_VEICULO_TIPO_VEICULO"),
+            nullable = false
+    )
+    private TipoVeiculo tipoVeiculo;
+
 }

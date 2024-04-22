@@ -2,6 +2,8 @@ package br.com.fiap.concessionaria.dto.response;
 
 import lombok.Builder;
 
+import java.time.Year;
+
 @Builder
 public record VeiculoResponse(
         Long id,
@@ -12,6 +14,7 @@ public record VeiculoResponse(
         String modelo,
         String palavraDeEfeito,
         TipoVeiculoResponse tipo,
-        FabricanteResponse fabricante
+        FabricanteResponse fabricante,
+        Year anoDeFabricacao
 ) {
 }

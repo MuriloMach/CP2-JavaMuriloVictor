@@ -6,10 +6,7 @@ import lombok.Builder;
 public record AcessorioResponse (
         Long id,
         String nome,
-        String cor,
-        Double preco,
-        short cilindradas,
-        String modelo,
-        String palavraDeEfeito
+        Double preco
+
 ){
 }

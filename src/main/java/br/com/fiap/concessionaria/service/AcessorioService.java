@@ -20,8 +20,8 @@ public class AcessorioService implements ServiceDTO<Acessorio, AcessorioRequest,
     @Override
     public Acessorio toEntity(AcessorioRequest m){
         return Acessorio.builder()
-                .nome(m.nome() )
-                .preco( m.preco() )
+                .nome(m.nome())
+                .preco( m.preco())
                 .build();
     }
     @Override

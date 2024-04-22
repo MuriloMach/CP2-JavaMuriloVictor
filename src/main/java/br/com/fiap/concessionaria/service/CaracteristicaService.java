@@ -21,6 +21,7 @@ public class CaracteristicaService implements ServiceDTO<Caracteristica, Caracte
 
     @Override
     public Caracteristica toEntity(CaracteristicaRequest m){
+        var veiculo = veiculoService.findById(m.veiculo().id());
         return Caracteristica.builder()
                 .nome(m.nome() )
                 .descricao(m.descricao())

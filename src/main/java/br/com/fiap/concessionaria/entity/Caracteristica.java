@@ -11,15 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "TB_CARACTERISTICA", uniqueConstraints = {
-        @UniqueConstraint(name = "UK_VEI", columnNames = "VEICULO")
-})
+@Table(name = "TB_CARACTERISTICA")
 
 public class Caracteristica {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SQ_CARACTERISTICA")
-    @SequenceGenerator(name = "SQ_VEICULO", sequenceName = "SQ_VEICULO", allocationSize = 1)
+    @SequenceGenerator(name = "SQ_CARACTERISTICA", sequenceName = "SQ_CARACTERISTICA", allocationSize = 1)
 
     @Column(name = "ID_FABRICANTE")
     private Long id;

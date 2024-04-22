@@ -49,11 +49,5 @@ public class CaracteristicaService implements ServiceDTO<Caracteristica, Caracte
     public Caracteristica save(Caracteristica w){
         return repo.save(w);
     }
-
-
-
-
-
-
-
 }
+

@@ -26,12 +26,10 @@ public class CaracteristicaResource implements  ResourceDTO<Caracteristica, Cara
     @GetMapping
     public ResponseEntity<Collection<CaracteristicaResponse>> findAll(
             @RequestParam(name = "caracteristica.nome",required = false) String nome,
-            @RequestParam(name = "caracteristica.descricao",required = false) String descricao,
-            @RequestParam(name = "caracteristica.veiculo",required = false) Veiculo veiculo
+            @RequestParam(name = "caracteristica.descricao",required = false) String descricao
             ){
         Caracteristica caracteristica = Caracteristica.builder()
                 .nome(nome)
-                .veiculo(veiculo)
                 .descricao(descricao)
                 .build();
 

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(value = "/acessorio")
+@RequestMapping(value = "/fabricante")
 public class FabricanteResource implements ResourceDTO<Fabricante, FabricanteRequest, FabricanteResponse> {
 
     @Autowired

@@ -21,7 +21,7 @@ public class Loja {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SQ_LOJA")
-    @SequenceGenerator(name = "SQ_VEICULO", sequenceName = "SQ_VEICULO", allocationSize = 1)
+    @SequenceGenerator(name = "SQ_LOJA", sequenceName = "SQ_LOJA", allocationSize = 1)
 
     @Column(name = "ID_LOJA")
     private Long id;

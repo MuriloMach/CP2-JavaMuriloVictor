@@ -43,8 +43,9 @@ public class Veiculo {
     private String modelo;
 
     //15 digitos
-    @Column(name = "PALAVRAEFEITO_VEICULO")
+    @Column(name = "PALAVRA_EFEITO_VEICULO")
     private String palavraDeEfeito;
+
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(
@@ -85,7 +86,4 @@ public class Veiculo {
             }
     )
     private Set<Acessorio> acessorios = new LinkedHashSet<>();
-
-
-
 }

@@ -17,9 +17,6 @@ import java.util.stream.Collectors;
 public class VeiculoService implements ServiceDTO<Veiculo, VeiculoRequest, VeiculoResponse> {
 
     @Autowired
-    private VeiculoService veiculoService;
-
-    @Autowired
     private VeiculoRepository repo;
 
     @Autowired
@@ -44,7 +41,7 @@ public class VeiculoService implements ServiceDTO<Veiculo, VeiculoRequest, Veicu
     }
     @Override
     public VeiculoResponse toResponse(Veiculo w){
-        Set<AcessorioResponse> acessorioResponses = w.getAcessorios()
+        Set<AcessorioResponse> acessorioResponse = w.getAcessorios()
                 .stream()
                 .map(acessorioService::toResponse)
                 .collect(Collectors.toSet());
